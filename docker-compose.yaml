@@ -29,3 +29,10 @@ services:
       - '$GITLAB_HOME/logs:/var/log/gitlab'
       - '$GITLAB_HOME/data:/var/opt/gitlab'
     shm_size: '256m'
+  gitlab-runner:
+    image: gitlab/gitlab-runner
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+        #- ./gitlab-runner/config:/etc/gitlab-runner
+
